@@ -1,0 +1,43 @@
+<canvas id="dibujo" width="400" height="400"></canvas></center>
+  
+<Script>
+Rectangulo=class{
+  constructor(x,y,ancho,alto){
+    this.x=x;
+    this.y=y;
+    this.ancho=ancho;
+    this.alto=alto;
+  }
+  get area(){
+    return this.calcarea();
+  }
+  calcarea(){
+    return this.alto*this.ancho;
+  }
+  rectangBorde(lienzo){
+    lienzo.strokeRect(this.x,this.y,this.ancho,this.alto);
+  }
+  fillRect(lienzo){
+    lienzo.fillRect(this.x,this.y,this.ancho,this.alto);
+  }
+}
+function traslacion(c){
+    
+    
+}
+function draw(){
+  var lienzo=document.getElementById('dibujo');
+  
+  if(lienzo.getContext){
+    var ctx =lienzo.getContext('2d');
+    
+    //ctx.translate(50,50);
+    //ctx.rotate(-Math.PI/4);
+    ctx.strokeRect(0,0,400,400);
+    const fig = new Rectangulo(150,140,100,100);
+    fig.rectangBorde(ctx);
+    fig.fillRect(ctx);
+  }
+}
+draw();
+</Script>
